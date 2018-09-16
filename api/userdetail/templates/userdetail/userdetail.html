@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Github User Details</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <br>
+    <div class="container">
+      <div class="jumbotron">
+        <div class="container text-center">
+        <h1 class="display-4">Github User Data</h1>
+
+        <form class="form-signin" id="login_form" method="post" action="/">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-8">
+              <div class="form-group">
+                <input type="text"  name="user" placeholder="Enter Username here!" value="" required  class="form-control"" />
+          </div>
+    </div>
+
+            <div class="col-2">
+              <button type="submit" class="btn btn-lg btn-primary btn-block" style="float">Get Data</button><br/>
+</div>
+<div class="col-2">
+              <button onclick="location.href='http://127.0.0.1:8000/admin';" class="btn btn-lg btn-danger btn-block" type="button" style="width:180px !important;">Admin Panel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+        {% if avatar_url %}
+          <br><br>
+          <div class="container text-center">
+               <img src="{{ avatar_url }}" alt="Error" height="200" width="200"> <br><br>
+          </div>
+
+          <div class="table-responsive">
+              <table class="table table-bordered table-hover table-striped tablesorter">
+                  <thead>
+                  <tr>
+                    <th class="header"> ID <i class="icon-sort"></i></th>
+                    <th class="header"> Username <i class="icon-sort"></i></th>
+                    <th class="header"> Full Name <i class="icon-sort"></i></th>
+                    <th class="header"> Location <i class="icon-sort"></i></th>
+                    <th class="header"> Blog <i class="icon-sort"></i></th>
+                    <th class="header"> Public Repos <i class="icon-sort"></i></th>
+                    <th class="header"> Public Gists <i class="icon-sort"></i></th>
+                    <th class="header"> Email <i class="icon-sort"></i></th>
+                    <th class="header"> Followers <i class="icon-sort"></i></th>
+                    <th class="header"> Following <i class="icon-sort"></i></th>
+                  </tr>
+              </thead>
+              <tbody>
+
+
+                  <tr>
+                      <td>{{ id }}</td>
+                      <td>{{ login }}</td>
+                      <td>{{ name }}</td>
+                      <td>{{ location }}</td>
+                      <td>{{ blog }}</td>
+                      <td>{{ public_repos }}</td>
+                      <td>{{ public_gists }}</td>
+                      <td>{{ email }}</td>
+                      <td>{{ followers }}</td>
+                      <td>{{ following }}</td>
+                  </tr>
+
+              </tbody>
+              </table>
+          </div>
+
+
+      </div>
+
+
+  </div>
+  {% endif %}
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  </body>
+</html>
